@@ -208,6 +208,10 @@ button {
 
 
 .logo {
+    display: inline-flex;
+
+    align-items: center;
+
     font-size: 31px;
 
     font-weight: 800;
@@ -218,6 +222,15 @@ button {
 
 .logo span {
     color: var(--primary);
+}
+
+
+.logo img {
+    display: block;
+
+height: 48px;
+
+    width: auto;
 }
 
 
