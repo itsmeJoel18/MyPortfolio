@@ -624,42 +624,72 @@ button {
 
     flex-direction: column;
 
+    height: 100%;
+
     overflow: hidden;
 
     border:
         1px solid var(--border);
 
-    border-radius: 15px;
+    border-radius: 16px;
 
     background: var(--card);
 
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.25);
+
     transition:
         transform 0.25s,
-        border 0.25s;
+        border 0.25s,
+        box-shadow 0.25s;
 }
 
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 
     border-color:
         rgba(34, 211, 238, 0.5);
+
+    box-shadow:
+        0 18px 42px
+        rgba(0, 0, 0, 0.4);
 }
 
 
 .project-image {
     width: 100%;
 
-    height: 210px;
+    height: 200px;
 
-    object-fit: cover;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
 
     background: #0b1120;
 }
 
 
-.project-placeholder {
-    height: 210px;
+.project-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.project-icon {
+    width: 100%;
+
+    height: 200px;
 
     display: flex;
 
@@ -676,7 +706,7 @@ button {
 
     color: var(--primary);
 
-    font-size: 45px;
+    font-size: 56px;
 
     font-weight: 800;
 }
@@ -689,23 +719,29 @@ button {
 
     flex: 1;
 
-    padding: 25px;
+    padding: 24px;
 }
 
 
 .project-content h3 {
-    font-size: 21px;
+    font-size: 20px;
 
     margin-bottom: 10px;
 }
 
 
 .project-content p {
+    flex: 1;
+
     color: var(--text-secondary);
 
     font-size: 14px;
 
-    margin-bottom: 20px;
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -716,14 +752,12 @@ button {
 
     gap: 8px;
 
-    margin-top: auto;
-
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 
 .tech-tag {
-    padding: 5px 10px;
+    padding: 6px 12px;
 
     border-radius: 50px;
 
@@ -738,10 +772,66 @@ button {
 }
 
 
+.project-features {
+    list-style: none;
+
+    margin: 0;
+
+    padding: 18px 0 20px;
+
+    border-top:
+        1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.project-features li {
+    position: relative;
+
+    padding-left: 22px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+}
+
+
+.project-features li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 4px;
+
+    width: 7px;
+
+    height: 12px;
+
+    border-right: 2px solid var(--primary);
+
+    border-bottom: 2px solid var(--primary);
+
+    transform: rotate(45deg);
+}
+
+
 .project-links {
     display: flex;
 
     gap: 17px;
+
+    margin-top: 2px;
 }
 
 
@@ -1044,6 +1134,222 @@ button {
 
 
 /* =========================================
+   EDUCATION
+========================================= */
+
+.education-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+.education-card {
+    padding: 28px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--card);
+
+    transition:
+        transform 0.25s,
+        border 0.25s,
+        background 0.25s;
+}
+
+
+.education-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(34, 211, 238, 0.5);
+
+    background: var(--card-hover);
+}
+
+
+.education-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 14px;
+}
+
+
+.education-logo {
+    width: 64px;
+
+    height: 64px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border:
+        1px solid var(--border);
+
+    background: #0b1120;
+}
+
+
+.education-ring {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 64px;
+
+    height: 64px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        rgba(34, 211, 238, 0.1);
+
+    color: var(--primary);
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+.education-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.education-info h3 {
+    font-size: 20px;
+
+    margin-bottom: 5px;
+}
+
+
+.education-degree {
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.education-years {
+    flex-shrink: 0;
+
+    padding: 5px 12px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(34, 211, 238, 0.08);
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.education-location {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+
+.education-description {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   PROJECT GALLERY
+========================================= */
+
+.project-overview {
+    max-width: 750px;
+
+    margin-bottom: 45px;
+}
+
+
+.project-overview h3 {
+    font-size: 24px;
+
+    margin-bottom: 12px;
+}
+
+
+.project-overview p {
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.gallery-grid img {
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    border:
+        1px solid var(--border);
+
+    background: #0b1120;
+
+    transition:
+        transform 0.25s,
+        border 0.25s;
+}
+
+
+.gallery-grid img:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(34, 211, 238, 0.5);
+}
+
+
+/* =========================================
    FOOTER
 ========================================= */
 
@@ -1114,6 +1420,12 @@ button {
 
 
     .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .gallery-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -1199,7 +1511,9 @@ button {
 
 
     .skills-grid,
-    .projects-grid {
+    .projects-grid,
+    .gallery-grid,
+    .education-list {
         grid-template-columns: 1fr;
     }
 

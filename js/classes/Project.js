@@ -26,6 +26,9 @@ export default class Project {
         this.featured =
             project.featured;
 
+        this.features =
+            project.features || [];
+
         this.rootPath =
             rootPath;
     }
@@ -45,28 +48,53 @@ export default class Project {
     }
 
 
-    createImage() {
+    createMedia() {
 
         if (this.image) {
 
             return `
-                <img
-                    src="${this.rootPath}/${this.image}"
-                    alt="${this.title}"
-                    class="project-image"
-                >
+                <div class="project-image">
+                    <img
+                        src="${this.rootPath}/${this.image}"
+                        alt="${this.title}"
+                    >
+                </div>
             `;
         }
 
 
-        const firstLetter =
-            this.title.charAt(0);
+        return `
+            <div class="project-icon">
+                ${this.title.charAt(0)}
+            </div>
+        `;
+    }
+
+
+    createFeatures() {
+
+        if (
+            !this.features ||
+            !this.features.length
+        ) {
+            return "";
+        }
 
 
         return `
-            <div class="project-placeholder">
-                ${firstLetter}
-            </div>
+            <ul class="project-features">
+
+                ${this.features
+                    .map(
+                        feature => `
+                            <li>
+                                ${feature}
+                            </li>
+                        `
+                    )
+                    .join("")}
+
+            </ul>
         `;
     }
 
@@ -76,7 +104,7 @@ export default class Project {
         return `
             <article class="project-card">
 
-                ${this.createImage()}
+                ${this.createMedia()}
 
                 <div class="project-content">
 
@@ -95,24 +123,10 @@ export default class Project {
 
                     </div>
 
+                    ${this.createFeatures()}
+
 
                     <div class="project-links">
-
-                        <a
-                            href="${this.github}"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            GitHub →
-                        </a>
-
-                        <a
-                            href="${this.live}"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Live Demo →
-                        </a>
 
                     </div>
 

@@ -95,6 +95,15 @@ export default class Navbar {
 
         } else if (
             pathname.includes(
+                "education.html"
+            )
+        ) {
+
+            currentPage =
+                "education";
+
+        } else if (
+            pathname.includes(
                 "contact.html"
             )
         ) {
