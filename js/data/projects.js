@@ -4,7 +4,7 @@ const projects = [
         id: 1,
 
         title:
-            "Rent Rush",
+            "Rent Rush Vehicle",
 
         description:
             "A Java-based desktop Car Rental Management System for managing vehicles, customers, rental transactions, return schedules, overdue fines, and payments.",
