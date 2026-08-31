@@ -7,10 +7,10 @@ const education = [
             "Davao del Sur State College",
 
         degree:
-            "Bachelor of Science Information Technology",
+            "Bachelor of Science in Information Technology",
 
         years:
-            "2024 - ongoing",
+            "2024 - Ongoing",
 
         location:
             "Barangay Matti, Digos City, Davao del Sur, 8002 Philippines",
